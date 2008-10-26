@@ -5,15 +5,22 @@ from django.views.decorators.cache import cache_page
 from django.views.generic.simple import direct_to_template
 from django.views.static import serve
 
-import settings
+import feeds, settings
 
 admin.autodiscover()
 
+feeds = {
+    'ink':  feeds.FreshInk,
+}
+
 urlpatterns = patterns('',
-    (r'^ink/',          include('ink.urls')),
-    (r'^projects/',     include('projects.urls')),
-    (r'^admin/doc/',    include('django.contrib.admindocs.urls')),
-    (r'^admin/(.*)',    admin.site.root),
+    (r'^ink/',                  include('ink.urls')),
+    (r'^projects/',             include('projects.urls')),
+    (r'^admin/doc/',            include('django.contrib.admindocs.urls')),
+    (r'^admin/(.*)',            admin.site.root),
+    (r'^feeds/(?P<url>.*)/$',   'django.contrib.syndication.views.feed',
+                                {'feed_dict': feeds}),
+
 )
 
 if settings.DEBUG:
