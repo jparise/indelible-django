@@ -1,0 +1,17 @@
+{% extends "base_ink.html" %}
+
+{% block title %}Indelible Ink | {{ month|date:"F Y" }}{% endblock %}
+
+{% load markup %}
+
+{% block content %}
+<div id="ink">
+{% for entry in object_list %}
+<div id="e{{ entry.id }}" class="summary">
+    <div class="date">{{ entry.pub_date|date:"F d, Y" }}</div>
+    <div class="title"><a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a></div>
+    {{ entry.summary|restructuredtext }}
+</div>
+{% endfor %}
+</div>
+{% endblock %}

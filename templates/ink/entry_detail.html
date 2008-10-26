@@ -1,0 +1,12 @@
+{% extends "base_ink.html" %}
+
+{% load markup %}
+
+{% block title %}{{ object.title|escape }} - Indelible Ink{% endblock %}
+
+{% block content %}
+<h1>{{ object.title }}</h1>
+<div id="date">{{ object.pub_date|date:"F d, Y" }}</div>
+
+{{ object.body|restructuredtext }}
+{% endblock %}

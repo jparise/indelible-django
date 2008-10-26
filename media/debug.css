@@ -1,0 +1,8 @@
+#debug #querytable {
+    padding: 0 5px 0 5px;
+}
+
+#debug #querytable td {
+    border-top: 1px solid #ccc;
+    padding: 4px 10px 0 10px;
+}

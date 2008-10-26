@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+	<title>{% block title %}Indelible.org{% endblock %}</title>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Language" content="en-us">
+	<meta name="author" content="Jon Parise">
+	<meta name="ROBOTS" content="ALL">
+	<meta name="MSSmartTagsPreventParsing" content="true">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="/m/base.css">
+{% if debug %}
+	<link rel="stylesheet" type="text/css" media="screen" href="/m/debug.css">
+{% endif %}
+{% block headers %}{% endblock %}
+</head>
+
+<body id="indelible">
+
+<div id="container">
+
+<div id="header">
+<div id="nav">
+<ul>
+    <li><a href="/ink/">ink</a></li>
+    <li><a href="/projects/">projects</a></li>
+    <li><a href="/about/">about</a></li>
+</ul>
+<span id="site"><a href="/">Indelible.org</a></span>
+<span id="section">&ndash; {% block section %}{% endblock %}</span>
+</div>
+</div> <!-- /header -->
+
+{% block content %}{% endblock %}
+
+<div id="footer">
+Copyright &copy; 2008 by Jon Parise.
+</div> <!-- /footer -->
+
+</div> <!-- /container -->
+
+{% if debug %}
+<div id="debug">
+  <p>
+    {{ sql_queries|length }} Quer{{ sql_queries|pluralize:"y,ies" }}
+    {% ifnotequal sql_queries|length 0 %}
+    (<span style="cursor: pointer;" onclick="var s=document.getElementById('querytable').style;s.display=s.display=='none'?'':'none';this.innerHTML=this.innerHTML=='Show'?'Hide':'Show';">Show</span>)
+    {% endifnotequal %}
+  </p>
+  <table id="querytable" style="display: none;">
+    <col width="1"></col>
+    <col></col>
+    <col width="1"></col>
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">SQL</th>
+      <th scope="col">Time</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for query in sql_queries %}<tr>
+      <td>{{ forloop.counter }}</td>
+      <td><tt>{{ query.sql|escape }}</tt></td>
+      <td>{{ query.time }}</td>
+    </tr>{% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endif %}
+
+</body>
+</html>

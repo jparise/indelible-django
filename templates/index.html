@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% load inklings markup %}
+
+{% block section %}Welcome{% endblock %}
+
+{% block content %}
+<div id="ink">
+{% get_latest_entries 2 as latest %}
+{% for entry in latest %}
+<div id="e{{ entry.id }}" class="summary">
+    <div class="date">{{ entry.pub_date|date:"F d, Y" }}</div>
+    <div class="title"><a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a></div>
+    <div class="text">{{ entry.summary|restructuredtext }}</div>
+</div>
+{% endfor %}
+</div> <!-- /ink -->
+{% endblock %}
