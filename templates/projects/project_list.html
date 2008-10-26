@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% load markup %}
+
+{% block title %}Indelible.org | Projects{% endblock %}
+{% block section %}Projects{% endblock %}
+
+{% block content %}
+<h1>Projects</h1>
+<div id="projects">
+
+{% for object in object_list %}
+<div id="{{ object.slug }}" class="project">
+    <div class="title"><a href="{{ object.link }}">{{ object.name }}</a></div>
+    {{ object.desc|restructuredtext }}
+</div>
+{% endfor %}
+
+</div> <!-- /projects -->
+{% endblock %}

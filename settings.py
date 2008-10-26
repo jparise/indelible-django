@@ -20,6 +20,7 @@ INSTALLED_APPS = (
     'django.contrib.webdesign',
     'tagging',
     'ink',
+    'projects',
 )
 
 TEMPLATE_LOADERS = (

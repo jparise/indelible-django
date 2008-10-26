@@ -11,8 +11,9 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     (r'^ink/',          include('ink.urls')),
-    (r'^admin/doc/', include('django.contrib.admindocs.urls')),
-    (r'^admin/(.*)', admin.site.root),
+    (r'^projects/',     include('projects.urls')),
+    (r'^admin/doc/',    include('django.contrib.admindocs.urls')),
+    (r'^admin/(.*)',    admin.site.root),
 )
 
 if settings.DEBUG:
@@ -23,6 +24,5 @@ if settings.DEBUG:
 
 urlpatterns += patterns('',
     url(r'^about/$',    direct_to_template, {'template': 'about.html'}),
-    url(r'^projects/$', direct_to_template, {'template': 'projects.html'}),
     url(r'^$',          direct_to_template, {'template': 'index.html'}),
 )
