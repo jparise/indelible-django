@@ -4,6 +4,11 @@
 
 {% block title %}Indelible Ink{% endblock %}
 
+{% block headers %}
+    {{ block.super }}
+	<link rel="alternate" href="/feeds/ink/{{ tag }}/" type="application/atom+xml">
+{% endblock %}
+
 {% block content %}
 <p>Entr{{ object_list|length|pluralize:"y,ies" }} tagged with <b>{{ tag }}</b>:</p>
 <div id="ink">
