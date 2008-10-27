@@ -20,7 +20,6 @@ urlpatterns = patterns('',
     (r'^admin/(.*)',            admin.site.root),
     (r'^feeds/(?P<url>.*)/$',   'django.contrib.syndication.views.feed',
                                 {'feed_dict': feeds}),
-
 )
 
 if settings.DEBUG:
