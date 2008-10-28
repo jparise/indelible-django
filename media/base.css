@@ -185,7 +185,7 @@ tt, pre, code, samp, kbd {
 #ink .summary .title a {
 	font-family: Georgia,serif;
 	font-size: 1.4em;
-	color: #666;
+	color: #464;
 	font-variant: small-caps;
 	text-decoration: none;
 }
@@ -221,7 +221,7 @@ tt, pre, code, samp, kbd {
 #projects .project .title a {
 	font-family: Georgia,serif;
 	font-size: 1.3em;
-	color: #666;
+	color: #464;
 	font-variant: small-caps;
 	text-decoration: none;
 }
