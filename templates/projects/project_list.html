@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% load markup %}
+{% load cache markup %}
 
 {% block title %}Indelible.org | Projects{% endblock %}
 {% block section %}Projects{% endblock %}
@@ -9,12 +9,14 @@
 <h1>Projects</h1>
 <div id="projects">
 
+{% cache 500 projects %}
 {% for object in object_list %}
 <div id="{{ object.slug }}" class="project">
-    <div class="title"><a href="{{ object.link }}">{{ object.name }}</a></div>
-    {{ object.desc|restructuredtext }}
+	<div class="title"><a href="{{ object.link }}">{{ object.name }}</a></div>
+	{{ object.desc|restructuredtext }}
 </div>
 {% endfor %}
+{% endcache %}
 
 </div> <!-- /projects -->
 {% endblock %}
