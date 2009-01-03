@@ -1,12 +1,31 @@
 {% extends "base_ink.html" %}
 
-{% load markup %}
+{% block title %}{{ object.title|escape }}{% endblock %}
 
-{% block title %}{{ object.title|escape }} - Indelible Ink{% endblock %}
+{% block headers %}
+{% for category in object.categories.all %}
+	<link rel="alternate" href="/feeds/ink/{{ category.slug }}/" title="Indelible Ink - {{ category.name|escape }}" type="application/atom+xml">
+{% endfor %}
+{% endblock %}
 
 {% block content %}
-<h1>{{ object.title }}</h1>
-<div id="date">{{ object.pub_date|date:"F d, Y" }}</div>
+<div id="ink">
+<h1>{{ object.title|escape }}</h1>
+<div id="date">{{ object.pub_date|date:"F j, Y" }}</div>
 
-{{ object.body|restructuredtext }}
+{{ object.content|safe }}
+
+{% if object.commentable %}
+<hr>
+<script>
+var idcomments_acct = '3767407de4d19859c117392243121f26';
+var idcomments_post_id;
+var idcomments_post_url;
+var idcomments_post_title = '{{ object.title|escape }}';
+</script>
+<span id="IDCommentsPostTitle" style="display:none"></span>
+<script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
+</script>
+{% endif %}
+</div> <!-- /ink -->
 {% endblock %}

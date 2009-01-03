@@ -1,24 +1,21 @@
 {% extends "base_ink.html" %}
 
-{% load markup %}
-
 {% block title %}Indelible Ink{% endblock %}
 
 {% block content %}
-<div id="ink">
+<ul class="naked">
 {% for entry in latest %}
-<div id="e{{ entry.id }}" class="summary">
-    <div class="date">{{ entry.pub_date|date:"F d, Y" }}</div>
-    <div class="title"><a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a></div>
-    {{ entry.summary|restructuredtext }}
-</div>
+<li>
+<span class="date">{{ entry.pub_date|date:"d M Y" }} &raquo;</span>
+<a href="{{ entry.get_absolute_url }}">{{ entry.title|escape }}</a>
+</li>
 {% endfor %}
+</ul>
 
 <div id="archives">
-	Archives:&nbsp;
+	Archives:
 	{% for year in date_list %}
-	<a href="{% url ink_entry_archive_year year|date:"Y" %}">{{ year|date:"Y" }}</a>&nbsp;
+	<a href="{% url ink_entry_archive_year year|date:"Y" %}">{{ year|date:"Y" }}</a>{%if not forloop.last %},{% endif %}
 	{% endfor %}
 </div>
-</div> <!-- /ink -->
 {% endblock %}
