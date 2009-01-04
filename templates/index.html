@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% load inklings project_tags %}
+{% load inklings %}
 
 {% block headers %}
 	<link rel="me" href="http://en.wikipedia.org/wiki/User:Jparise">
@@ -21,7 +21,7 @@
 {% for entry in latest %}
 <li>
 <span class="date">{{ entry.pub_date|date:"d M Y" }} &raquo;</span>
-<a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a>
+<a href="{{ entry.get_absolute_url }}">{{ entry.title|escape }}</a>
 </li>
 {% endfor %}
 </ul>
