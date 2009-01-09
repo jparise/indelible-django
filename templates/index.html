@@ -18,6 +18,7 @@
 
 {% block content %}
 {% get_latest_entries 10 as latest %}
+{% if latest %}
 <ul class="naked">
 {% for entry in latest %}
 <li>
@@ -26,4 +27,5 @@
 </li>
 {% endfor %}
 </ul>
+{% endif %}
 {% endblock %}
