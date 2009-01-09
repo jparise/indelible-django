@@ -3,6 +3,7 @@
 {% block title %}Indelible Ink{% endblock %}
 
 {% block content %}
+{% if latest %}
 <ul class="naked">
 {% for entry in latest %}
 <li>
@@ -11,11 +12,14 @@
 </li>
 {% endfor %}
 </ul>
+{% endif %}
 
+{% if date_list %}
 <div id="archives">
 	Archives:
 	{% for year in date_list %}
 	<a href="{% url ink_entry_archive_year year|date:"Y" %}">{{ year|date:"Y" }}</a>{%if not forloop.last %},{% endif %}
 	{% endfor %}
 </div>
+{% endif %}
 {% endblock %}
