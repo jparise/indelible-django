@@ -4,7 +4,7 @@
 
 {% block headers %}
 {% for category in object.categories.all %}
-	<link rel="alternate" href="/feeds/ink/{{ category.slug }}/" title="Indelible Ink - {{ category.name|escape }}" type="application/atom+xml">
+	<link rel="alternate" href="/feeds/ink/{{ category.slug }}.xml" title="Indelible Ink - {{ category.name|escape }}" type="application/atom+xml">
 {% endfor %}
 {% endblock %}
 

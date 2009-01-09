@@ -18,7 +18,7 @@ urlpatterns = patterns('',
     (r'^projects/',             include('projects.urls')),
     (r'^admin/doc/',            include('django.contrib.admindocs.urls')),
     (r'^admin/(.*)',            admin.site.root),
-    (r'^feeds/(?P<url>.*)/$',   'django.contrib.syndication.views.feed',
+    (r'^feeds/(?P<url>.*)(/|\.xml)$', 'django.contrib.syndication.views.feed',
                                 {'feed_dict': feeds}),
 )
 

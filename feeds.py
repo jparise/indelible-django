@@ -13,6 +13,8 @@ class FreshInk(Feed):
         if len(bits) > 1:
             raise FeedDoesNotExist
         if len(bits) == 1:
+            if bits[0].endswith('.xml'):
+                bits[0] = bits[0][:-4]
             return Category.objects.get(slug=bits[0])
         return None
 
