@@ -29,6 +29,7 @@ if settings.DEBUG:
     )
 
 urlpatterns += patterns('',
+    url(r'^feeds/$',    direct_to_template, {'template': 'feeds.html'}),
     url(r'^about/$',    direct_to_template, {'template': 'about.html'}),
     url(r'^$',          direct_to_template, {'template': 'index.html'}),
 )

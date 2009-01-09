@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% load inklings %}
+
+{% block title %}Indelible.org | Feeds{% endblock %}
+{% block section %}Feeds{% endblock %}
+
+{% block content %}
+<h1>Syndication Feeds</h1>
+<p>
+Complete syndication feeds are available.  All feeds currently use the <a href="http://www.atomenabled.org/">Atom Publishing Protocol</a> version 1.0.
+</p>
+
+<h2>Indelible Ink</h2>
+{% get_categories as categories %}
+<ul>
+	<li><a href="/feeds/ink/">All Entries</a></li>
+{% for category in categories %}
+	<li><a href="/feeds/ink/{{ category.slug }}.xml">{{ category.name }} Entries</a></li>
+{% endfor %}
+</ul>
+
+{% endblock %}
