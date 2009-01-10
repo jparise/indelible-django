@@ -95,6 +95,15 @@ img {
 	margin-top: 20px;
 }
 
+#footer a {
+	color: #999;
+	border: 0;
+}
+
+#footer a:hover {
+	text-decoration: underline;
+}
+
 /* HEADINGS */
 
 h1, h2, h3 {
