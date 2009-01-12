@@ -1,0 +1,8 @@
+{% extends "ink/entry_detail.html" %}
+
+{% block title %}[Preview] {{ object.title|escape }}{% endblock %}
+
+{% block content %}
+<h3 style="text-align: center; color: red">Draft Preview</h3>
+{{ block.super }}
+{% endblock %}
