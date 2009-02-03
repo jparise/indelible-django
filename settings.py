@@ -16,6 +16,7 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.markup',
     'django.contrib.sessions',
+    'django.contrib.sitemaps',
     'django.contrib.sites',
     'django.contrib.webdesign',
     'ink',

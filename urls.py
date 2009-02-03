@@ -5,12 +5,17 @@ from django.views.decorators.cache import cache_page
 from django.views.generic.simple import direct_to_template
 from django.views.static import serve
 
-import feeds, settings
+import feeds, settings, sitemaps
 
 admin.autodiscover()
 
 feeds = {
     'ink':  feeds.FreshInk,
+}
+
+sitemaps = {
+    'static':   sitemaps.StaticSitemap,
+    'ink':      sitemaps.InkSitemap,
 }
 
 urlpatterns = patterns('',
@@ -21,6 +26,8 @@ urlpatterns = patterns('',
     (r'^admin/(.*)',            admin.site.root),
     (r'^feeds/(?P<url>.*)(/|\.xml)$', 'django.contrib.syndication.views.feed',
                                 {'feed_dict': feeds}),
+    (r'^sitemap.xml$', 'django.contrib.sitemaps.views.sitemap',
+                                {'sitemaps': sitemaps}),
 )
 
 if settings.DEBUG:
