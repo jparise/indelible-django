@@ -1,7 +1,6 @@
 from django.conf.urls.defaults import *
 
 from django.contrib import admin
-from django.views.decorators.cache import cache_page
 from django.views.generic.simple import direct_to_template
 from django.views.static import serve
 
