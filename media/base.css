@@ -232,9 +232,3 @@ ul > li > .date {
 .code-block .nc,.nf,.nn { color: #333; font-weight: bold } /* Symbol Names */
 .code-block .s { color: #933 } /* Literal.String */
 .code-block .sd { color: #666 } /* Literal.String.Doc */
-
-/* INTENSE DEBATE */
-#idc-container h3 {
-	font-size: 1.4em !important;
-	margin-bottom: 6px !important;
-}

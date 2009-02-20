@@ -18,14 +18,7 @@
 
 {% if object.commentable %}
 <hr>
-<script type="text/javascript">
-var idcomments_acct = '3767407de4d19859c117392243121f26';
-var idcomments_post_id = '{{ object.slug }}';
-var idcomments_post_url = 'http://www.indelible.org{{ object.get_absolute_url }}';
-var idcomments_post_title = '{{ object.title|escape }}';
-</script>
-<span id="IDCommentsPostTitle" style="display:none"></span>
-<script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
+<div id="disqus_thread"></div><script type="text/javascript" src="http://disqus.com/forums/indelibleink/embed.js"></script><noscript><a href="http://indelibleink.disqus.com/?url=ref">View the discussion thread.</a></noscript>
 {% endif %}
 </div> <!-- /ink -->
 {% endblock %}
