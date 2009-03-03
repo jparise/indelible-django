@@ -53,7 +53,9 @@ CACHE_MIDDLEWARE_ANONYMOUS_ONLY = True
 
 # Ink
 INK_FLAT_URLS = True
-INK_DOCUTILS_SETTINGS = {'strip_comments': True, 'cloak_email_addresses': True}
+INK_DOCUTILS_SETTINGS = {'strip_comments': True,
+                         'cloak_email_addresses': True,
+                         'initial_header_level': 2}
 
 # Import local settings
 from settings_local import *
