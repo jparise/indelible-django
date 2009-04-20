@@ -1,6 +1,10 @@
 {% extends "base_ink.html" %}
 
 {% block title %}Indelible Ink | {{ month|date:"F Y" }}{% endblock %}
+{% block headers %}
+	{{ block.super }}
+	<meta name="robots" content="noindex">
+{% endblock %}
 
 {% block content %}
 <ul class="naked">

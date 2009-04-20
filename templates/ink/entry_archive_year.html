@@ -1,6 +1,10 @@
 {% extends "base_ink.html" %}
 
 {% block title %}Indelible Ink | {{ year }}{% endblock %}
+{% block headers %}
+	{{ block.super }}
+	<meta name="robots" content="noindex">
+{% endblock %}
 
 {% block content %}
 <ul>
