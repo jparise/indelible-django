@@ -221,9 +221,9 @@ ul > li > .date {
 	margin-top: 20px;
 }
 
-#projects .project .title a {
+#projects .project h3 a {
 	font-family: Georgia, serif;
-	font-size: 1.3em;
+	font-style: normal;
 }
 
 /* PYGMENTS */

@@ -19,7 +19,6 @@ sitemaps = {
 
 urlpatterns = patterns('',
     (r'^ink/',                  include('ink.urls')),
-    (r'^projects/',             include('projects.urls')),
     (r'^admin/doc/',            include('django.contrib.admindocs.urls')),
     (r'^admin/ink/',            include('ink.admin_urls')),
     (r'^admin/(.*)',            admin.site.root),
@@ -36,6 +35,7 @@ if settings.DEBUG:
     )
 
 urlpatterns += patterns('',
+    url(r'^projects/$', direct_to_template, {'template': 'projects.html'}),
     url(r'^feeds/$',    direct_to_template, {'template': 'feeds.html'}),
     url(r'^about/$',    direct_to_template, {'template': 'about.html'}),
     url(r'^$',          direct_to_template, {'template': 'index.html'}),
