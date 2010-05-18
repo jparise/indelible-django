@@ -1,4 +1,5 @@
-from django.contrib.syndication.feeds import Feed, FeedDoesNotExist
+from django.contrib.syndication.views import Feed
+from django.shortcuts import get_object_or_404
 from django.utils.feedgenerator import Atom1Feed
 from ink.models import Category, Entry
 
@@ -9,13 +10,9 @@ class FreshInk(Feed):
     title_template = 'feeds/ink_title.html'
     description_template = 'feeds/ink_description.html'
 
-    def get_object(self, bits):
-        if len(bits) > 1:
-            raise FeedDoesNotExist
-        if len(bits) == 1:
-            if bits[0].endswith('.xml'):
-                bits[0] = bits[0][:-4]
-            return Category.objects.get(slug=bits[0])
+    def get_object(self, request, category):
+        if category:
+            return get_object_or_404(Category, slug=category)
         return None
 
     def subtitle(self, obj):

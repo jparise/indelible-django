@@ -8,10 +8,6 @@ import feeds, settings, sitemaps
 
 admin.autodiscover()
 
-feeds = {
-    'ink':  feeds.FreshInk,
-}
-
 sitemaps = {
     'static':   sitemaps.StaticSitemap,
     'ink':      sitemaps.InkSitemap,
@@ -22,8 +18,7 @@ urlpatterns = patterns('',
     (r'^admin/doc/',            include('django.contrib.admindocs.urls')),
     (r'^admin/ink/',            include('ink.admin_urls')),
     (r'^admin/(.*)',            admin.site.root),
-    (r'^feeds/(?P<url>.*)(/|\.xml)$', 'django.contrib.syndication.views.feed',
-                                {'feed_dict': feeds}),
+    (r'^feeds/ink/((?P<category>.*)\.xml)?$', feeds.FreshInk()),
     (r'^sitemap.xml$', 'django.contrib.sitemaps.views.sitemap',
                                 {'sitemaps': sitemaps}),
 )
