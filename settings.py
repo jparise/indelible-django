@@ -19,6 +19,7 @@ INSTALLED_APPS = (
     'django.contrib.sitemaps',
     'django.contrib.sites',
     'django.contrib.webdesign',
+    'contact_form',
     'ink',
 )
 
@@ -49,6 +50,10 @@ CACHE_MIDDLEWARE_SECONDS = 60 * 60 * 1 # 1 hour
 CACHE_MIDDLEWARE_KEY_PREFIX = 'indelible'
 CACHE_MIDDLEWARE_GZIP = True
 CACHE_MIDDLEWARE_ANONYMOUS_ONLY = True
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
 # Ink
 INK_FLAT_URLS = True

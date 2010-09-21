@@ -14,6 +14,7 @@ sitemaps = {
 }
 
 urlpatterns = patterns('',
+    (r'^contact/',              include('contact_form.urls')),
     (r'^ink/',                  include('ink.urls')),
     (r'^admin/doc/',            include('django.contrib.admindocs.urls')),
     (r'^admin/ink/',            include('ink.admin_urls')),
