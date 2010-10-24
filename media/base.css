@@ -144,6 +144,10 @@ h3 {
 
 /* CONTENT */
 
+#ink {
+	margin-bottom: 20px;
+}
+
 p {
 	margin: 10px 0pt;
 	text-align: justify;
