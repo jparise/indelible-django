@@ -3,4 +3,9 @@
 
 {% block headers %}
 	<link rel="alternate" href="/feeds/ink/" title="Indelible Ink" type="application/atom+xml">
+	<meta property="og:title" content="{% block title %}{{ object.title|escape }}{% endblock %}">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="http://www.indelible.org{{ object.get_absolute_url }}">
+	<meta property="og:image" content="http://static.indelible.org/logo.jpg">
+	<meta property="og:site_name" content="Indelible Ink">
 {% endblock %}
