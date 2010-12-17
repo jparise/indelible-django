@@ -19,7 +19,6 @@ INSTALLED_APPS = (
     'django.contrib.sitemaps',
     'django.contrib.sites',
     'django.contrib.webdesign',
-    'contact_form',
     'ink',
 )
 

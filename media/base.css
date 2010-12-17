@@ -230,24 +230,6 @@ ul > li > .date {
 	font-style: normal;
 }
 
-/* CONTACT */
-
-#contact {
-	margin: 30px;
-}
-
-#contact th {
-	padding-right: 10px;
-	text-align: right;
-}
-
-#contact .errorlist {
-	color: #cc0000;
-	font-style: italic;
-	list-style: none;
-	margin-left: 0;
-}
-
 /* PYGMENTS */
 
 .code-block .err { border: 1px solid #FF0000 } /* Error */
